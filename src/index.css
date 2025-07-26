@@ -2,41 +2,73 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* RPG PIXEL-ART DESIGN SYSTEM 🎮
+All colors, gradients, fonts, animations for the RPG portfolio.
+All colors MUST be HSL for proper theming.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* === DAY MODE (Light RPG Theme) === */
+    --background: 45 23% 95%; /* Warm parchment */
+    --foreground: 25 25% 15%; /* Dark brown text */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 45 35% 88%; /* Light scroll paper */
+    --card-foreground: 25 25% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 45 35% 92%;
+    --popover-foreground: 25 25% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* RPG Gold Primary Colors */
+    --primary: 45 100% 35%; /* Rich gold */
+    --primary-foreground: 45 15% 95%;
+    --primary-glow: 45 100% 60%; /* Lighter gold for effects */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* RPG Secondary Colors */
+    --secondary: 210 45% 25%; /* Deep blue */
+    --secondary-foreground: 210 40% 95%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 45 20% 80%;
+    --muted-foreground: 25 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* RPG Accent Colors */
+    --accent: 280 100% 45%; /* Magic purple */
+    --accent-foreground: 280 15% 95%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 75% 50%; /* Red for danger */
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 45 25% 75%;
+    --input: 45 25% 85%;
+    --ring: 45 100% 50%;
 
-    --radius: 0.5rem;
+    /* RPG Specific Colors */
+    --magic-cyan: 180 100% 50%;
+    --magic-pink: 320 100% 60%;
+    --magic-yellow: 60 100% 60%;
+    --forest-green: 120 40% 35%;
+    --dungeon-stone: 240 10% 25%;
+    --health-red: 0 80% 55%;
+    --mana-blue: 220 100% 60%;
+    --experience-green: 120 60% 45%;
+
+    /* === GRADIENTS === */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-magic: linear-gradient(45deg, hsl(var(--magic-cyan)), hsl(var(--magic-pink)));
+    --gradient-hero: linear-gradient(180deg, hsl(var(--background)), hsl(45 30% 85%));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(45 25% 82%));
+
+    /* === SHADOWS === */
+    --shadow-pixel: 4px 4px 0px hsl(var(--primary) / 0.3);
+    --shadow-card: 0 8px 32px hsl(var(--primary) / 0.15);
+    --shadow-glow: 0 0 20px hsl(var(--primary-glow) / 0.6);
+    --shadow-magic: 0 0 30px hsl(var(--magic-cyan) / 0.4);
+
+    /* === ANIMATIONS === */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 8px;
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,33 +88,38 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* === NIGHT MODE (Dark RPG Theme) === */
+    --background: 240 15% 8%; /* Deep night sky */
+    --foreground: 45 25% 85%; /* Light text */
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 240 12% 12%; /* Dark stone */
+    --card-foreground: 45 25% 85%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 240 15% 10%;
+    --popover-foreground: 45 25% 85%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    /* Moonlight Primary Colors */
+    --primary: 200 100% 60%; /* Cyan moonlight */
+    --primary-foreground: 240 15% 8%;
+    --primary-glow: 200 100% 80%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    /* Night Secondary Colors */
+    --secondary: 280 60% 40%; /* Purple night */
+    --secondary-foreground: 280 15% 90%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 240 8% 20%;
+    --muted-foreground: 240 15% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    /* Night Magic Colors */
+    --accent: 320 100% 65%; /* Bright magenta */
+    --accent-foreground: 320 15% 5%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 80% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 240 12% 25%;
+    --input: 240 12% 18%;
+    --ring: 200 100% 70%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -100,6 +137,180 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-pixel;
+    cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path fill="%23FFD700" d="M16 0l4 8h8l-6 6 2 8-8-4-8 4 2-8-6-6h8z"/></svg>') 16 16, auto;
   }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 6px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 6px;
+    border: 2px solid hsl(var(--muted));
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary-glow));
+  }
+}
+
+/* === FONT FAMILIES === */
+@layer base {
+  .font-pixel {
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+  }
+  
+  .font-cyber {
+    font-family: 'Orbitron', 'Arial', sans-serif;
+  }
+}
+
+/* === RPG ANIMATIONS === */
+@layer utilities {
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  .animate-typewriter {
+    animation: typewriter 2s steps(40) 1s 1 normal both;
+  }
+  
+  .animate-magic-sparkle {
+    animation: magicSparkle 1.5s ease-in-out infinite;
+  }
+  
+  .animate-pixel-bounce {
+    animation: pixelBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+
+  /* Hover effects */
+  .hover-glow {
+    transition: var(--transition-smooth);
+  }
+  
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+  }
+  
+  .hover-magic:hover {
+    background: var(--gradient-magic);
+    transform: scale(1.05);
+    transition: var(--transition-bounce);
+  }
+
+  /* RPG UI Elements */
+  .rpg-border {
+    border: 3px solid hsl(var(--primary));
+    border-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><rect width="20" height="20" fill="none" stroke="%23B8860B" stroke-width="2"/><circle cx="5" cy="5" r="2" fill="%23FFD700"/><circle cx="15" cy="5" r="2" fill="%23FFD700"/><circle cx="5" cy="15" r="2" fill="%23FFD700"/><circle cx="15" cy="15" r="2" fill="%23FFD700"/></svg>') 10;
+  }
+  
+  .rpg-card {
+    background: var(--gradient-card);
+    border: 2px solid hsl(var(--primary));
+    box-shadow: var(--shadow-card);
+    position: relative;
+  }
+  
+  .rpg-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--gradient-primary);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .rpg-card:hover::before {
+    opacity: 0.5;
+  }
+
+  .skill-bar {
+    background: hsl(var(--muted));
+    border: 2px solid hsl(var(--primary));
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .skill-fill {
+    background: var(--gradient-primary);
+    height: 100%;
+    transition: width 1s ease-out;
+    position: relative;
+  }
+  
+  .skill-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+    animation: skillShine 2s ease-in-out infinite;
+  }
+}
+
+/* === KEYFRAMES === */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 5px hsl(var(--primary-glow)); }
+  to { box-shadow: 0 0 20px hsl(var(--primary-glow)), 0 0 30px hsl(var(--primary-glow)); }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes magicSparkle {
+  0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+  50% { opacity: 0.7; transform: scale(1.1) rotate(180deg); }
+}
+
+@keyframes pixelBounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes skillShine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
